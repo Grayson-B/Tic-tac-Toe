@@ -41,8 +41,23 @@ class TicTacToe():
         self.game_over_color = (255,179,1)
         self.font = pygame.font.SysFont("Courier New", 35)
         self.FPS = pygame.time.Clock()
+    
+    def _draw_table(self):
+        tb_space_point = (self.table_space, self.table_size - self.table_space)
+        cell_space_point = (self.cell_size, self.cell_size * 2)
+        r1 = pygame.draw.line(screen, self.table_color,[tb_space_point[0], cell_space_point[0]], [tb_space_point[1], cell_space_point[0]], 8)
+        c1 = pygame.draw.line(screen, self.table_color,[tb_space_point[0], cell_space_point[0]], [tb_space_point[0], cell_space_point[1]], 8)
+        r2 = pygame.draw.line(screen, self.table_color,[tb_space_point[0], cell_space_point[1]], [tb_space_point[1], cell_space_point[1]], 8)
+        c2 = pygame.draw.line(screen, self.table_color,[tb_space_point[1], cell_space_point[0]], [tb_space_point[1], cell_space_point[1]], 8)
 
+    def _change_player(self):
+        self.player = "O" if self.player == "X" else "X"
 
+    def _move(self, pos):
+        try:
+            x, y = pos[0] // self.cell_size, pos[1] // self.cell_size
+            if self.table[x][y] == "-"
+            
 
 pygame.display.update()
 
@@ -50,6 +65,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+
+
 
 
 pygame.quit()
